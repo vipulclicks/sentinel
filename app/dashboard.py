@@ -17,8 +17,8 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "fraud_mode
 METRICS_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "metrics.json")
 PR_CURVE_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "pr_curve.png")
 
-st.set_page_config(page_title="Sentinel — Fraud Detector", layout="wide")
-st.title("🛡️ Sentinel — Track 02: AI Risk Manager")
+st.set_page_config(page_title="Sentinel", layout="wide")
+st.title("🛡️ Sentinel")
 st.caption("Defense-only: flags and explains suspicious transactions. Never auto-blocks or moves money.")
 
 model = joblib.load(MODEL_PATH)
