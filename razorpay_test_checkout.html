@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  Minimal Razorpay Standard Checkout page — use this to generate a handful
+  of REAL test-mode payments in your Razorpay account, since the API alone
+  can't create a captured payment (a checkout + test card is required).
+
+  Usage:
+    1. Replace YOUR_TEST_KEY_ID below with your actual rzp_test_... key id.
+    2. Open this file directly in a browser (double-click it, or
+       `open razorpay_test_checkout.html` on Mac).
+    3. Click "Pay" and use a test card, e.g. 4111 1111 1111 1111,
+       any future expiry, any CVV. Click "Success" on the mock bank page.
+    4. Repeat 5-10 times with different amounts to build up a small batch
+       of real test payments.
+    5. Run `python src/fetch_razorpay_payments.py` to pull them via API.
+-->
+<html>
+
+<head>
+  <title>Razorpay Test Checkout — Sentinel Demo</title>
+</head>
+
+<body>
+  <h2>Generate a test-mode Razorpay payment</h2>
+  <p>Amount (INR): <input type="number" id="amount" value="500" /></p>
+  <button id="pay-btn">Pay</button>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementById('pay-btn').onclick = function () {
+      var amount = Math.round(parseFloat(document.getElementById('amount').value) * 100); // paise
+      var options = {
+        "key": "rzp_test_TSgmAYKsrd4Ltk", // <-- put your rzp_test_... key id here
+        "amount": amount,
+        "currency": "INR",
+        "name": "Sentinel Demo Merchant",
+        "description": "Test transaction for Sentinel demo",
+        "handler": function (response) {
+          alert("Payment successful! ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+          "name": "Test User",
+          "email": "test.user@example.com",
+          "contact": "9999999999"
+        },
+        "theme": { "color": "#3399cc" }
+      };
+      var rzp = new Razorpay(options);
+      rzp.open();
+    };
+  </script>
+</body>
+
+</html>

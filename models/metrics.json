@@ -1,0 +1,35 @@
+{
+  "logistic_regression": {
+    "name": "Logistic Regression (baseline)",
+    "precision": 0.3693989071038251,
+    "recall": 1.0,
+    "f1": 0.5395051875498803,
+    "roc_auc": 0.9960694268718858,
+    "tn": 11924,
+    "fp": 577,
+    "fn": 0,
+    "tp": 338,
+    "fp_cost": 28850,
+    "fn_cost": 0,
+    "total_cost": 28850
+  },
+  "random_forest": {
+    "name": "Random Forest",
+    "precision": 0.9305555555555556,
+    "recall": 0.9911242603550295,
+    "f1": 0.9598853868194842,
+    "roc_auc": 0.9997354057829221,
+    "tn": 12476,
+    "fp": 25,
+    "fn": 3,
+    "tp": 335,
+    "fp_cost": 1250,
+    "fn_cost": 9000,
+    "total_cost": 10250
+  },
+  "selected": "Random Forest",
+  "assumptions": {
+    "cost_per_false_positive_inr": 50,
+    "cost_per_false_negative_inr": 3000
+  }
+}

@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+matplotlib
+seaborn
+xgboost
+fastapi
+uvicorn
+streamlit
+joblib
+httpx
+razorpay
